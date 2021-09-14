@@ -21,7 +21,7 @@ export const AddOrder = () => {
         if(Object.keys(form).every(field => form[field] === '')) {
             newErrors['error'] = 'error'
         }
-        console.log(newErrors);
+
         return Object.keys(newErrors).length === 0
     }
 

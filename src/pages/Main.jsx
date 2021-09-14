@@ -35,7 +35,6 @@ function Main() {
             }   
         })
         setItems([...filtredItems])
-        
     }, [searchValue])
 
 
@@ -47,9 +46,9 @@ function Main() {
                 <div className="packages__search">
                     <SearchIcon className='packages__search-icon'/>
                     <Input 
-                    placeholder='Search package, client or courier'
-                    className='packages__search-input'
-                    onChange={handleSearch}
+                        placeholder='Search package, client or courier'
+                        className='packages__search-input'
+                        onChange={handleSearch}
                     />
                 </div>
                 <div className="packages__header">
@@ -59,7 +58,6 @@ function Main() {
                     />
                     <span className='packages__header-items'> {orders.length} entries</span>
                 </div>
-
                 <div className="packages__nav">
                     {navItems.map((item, key) => <div key={key} className="packages__nav-item">{item}</div>)}
                     <div className={`packages__nav-add ${addOrder && 'packages__nav-add--active' }`} onClick={() => setAddOrder(!addOrder)}>
@@ -67,16 +65,14 @@ function Main() {
                     </div>
                 </div>
                 {items.map((item, key)=> <OrderItem 
-                key={key} 
-                id={item.id} 
-                client={item.client} 
-                pickup={item.pickAdress}
-                dropoff={item.dropAdress}
-                courier={item.courier}
+                    key={key} 
+                    id={item.id} 
+                    client={item.client} 
+                    pickup={item.pickAdress}
+                    dropoff={item.dropAdress}
+                    courier={item.courier}
                 />)}
-
                 {addOrder && <AddOrder />}
-
                 </div>
             </div>
         </div>

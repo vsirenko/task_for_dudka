@@ -1,8 +1,9 @@
 .left-nav {
+    position: fixed;
+    left: 0;
     width: 100px;
     height: 100vh;
     padding-top: 38px;
-    margin-right: 120px;
     box-sizing: border-box;
     background: $c-light-gray;
     display: flex;
