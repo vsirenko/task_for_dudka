@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { AddOrderAction } from '../store/actions/AddOrderActions'
-import { setLS } from '../utils/LocalStorage'
 import { Input } from './Input'
 
 export const AddOrder = () => {
@@ -17,10 +16,21 @@ export const AddOrder = () => {
     const handleForm = (e) => {
         setForm({...form, [e.target.name]: e.target.value})
     }
+    const validate = () => {
+        let newErrors = {}
+        if(Object.keys(form).every(field => form[field] === '')) {
+            newErrors['error'] = 'error'
+        }
+        console.log(newErrors);
+        return Object.keys(newErrors).length === 0
+    }
+
     const handlerLoginForm = (e) => {
         e.preventDefault()
-        dispatch(AddOrderAction(form))
-        // setLS('orders', )
+        validate()  
+        if(validate()) {
+            return dispatch(AddOrderAction(form))
+        }
     }
     return (
         <form  className='packages__add'>

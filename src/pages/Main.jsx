@@ -15,11 +15,28 @@ function Main() {
 
     const [addOrder, setAddOrder] = useState(false)
     const [items, setItems] = useState(orders)
+    const [searchValue, setSearchValue] = useState('')
 
     useEffect(()=> {
         setItems(orders)
-        setLS('orders', orders)
+        setLS('clients', orders)
     }, [orders])
+
+    const handleSearch = (e) => {
+        setSearchValue(e.target.value)
+    }
+
+    useEffect(()=> {
+        const filtredItems = orders.filter((item)=> {
+            if(item.client.toLowerCase().indexOf(searchValue.toLowerCase()) !== -1) {
+                return true
+            } else {
+                return false
+            }   
+        })
+        setItems([...filtredItems])
+        
+    }, [searchValue])
 
 
     return (
@@ -32,6 +49,7 @@ function Main() {
                     <Input 
                     placeholder='Search package, client or courier'
                     className='packages__search-input'
+                    onChange={handleSearch}
                     />
                 </div>
                 <div className="packages__header">

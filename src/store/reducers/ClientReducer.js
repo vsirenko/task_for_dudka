@@ -1,7 +1,7 @@
 import {loadLS} from '../../utils/LocalStorage'
 
 const defaultState = {
-    clients: loadLS('orders')
+    clients: loadLS('clients')
 }
 
 export const ClientReducer = (state = defaultState, action) => {
