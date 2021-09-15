@@ -64,6 +64,8 @@ export const AddOrder = () => {
                 name='courier'
                 onChange={handleForm}
                 />
+                <div className='packages__add-input__plug'>
+                </div>
             <button onClick={e => handlerLoginForm(e)} className='packages__add-button'>Add</button>
         </form>
     )
